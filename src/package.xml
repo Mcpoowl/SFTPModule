@@ -16,7 +16,6 @@
       <file path="userlib\commons-io-2.4.jar" />
       <file path="userlib\jsch-0.1.52.jar" />
       <file path="userlib\org.apache.commons-net-3.3.0.jar" />
-      <file path="widgets\FileDocumentViewer.mpk" />
     </files>
   </modelerProject>
 </package>
