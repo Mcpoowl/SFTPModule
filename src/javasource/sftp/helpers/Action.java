@@ -7,5 +7,6 @@ public enum Action {
 	CD,
 	PUT,
 	ZIP,
-	MKDIR
+	MKDIR,
+	RNM
 }

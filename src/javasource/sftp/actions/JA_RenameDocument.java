@@ -9,9 +9,9 @@
 
 package sftp.actions;
 
+import sftp.helpers.Action;
 import sftp.helpers.FTPConnection;
 import sftp.helpers.SFTPConnection;
-import sftp.helpers.Action;
 import sftp.proxies.FTPType;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
@@ -19,19 +19,16 @@ import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 /**
- * Create a new folder in the currently opened folder.
  * 
- * Connection = The user specific Connection entity
- * Configuration = The general Configuration entity
  */
-public class JA_CreateNewFolder extends CustomJavaAction<Boolean>
+public class JA_RenameDocument extends CustomJavaAction<Boolean>
 {
 	private IMendixObject __ConnectionParameter1;
 	private sftp.proxies.Connection ConnectionParameter1;
 	private IMendixObject __ConfigurationParameter1;
 	private sftp.proxies.Configuration ConfigurationParameter1;
 
-	public JA_CreateNewFolder(IContext context, IMendixObject ConnectionParameter1, IMendixObject ConfigurationParameter1)
+	public JA_RenameDocument(IContext context, IMendixObject ConnectionParameter1, IMendixObject ConfigurationParameter1)
 	{
 		super(context);
 		this.__ConnectionParameter1 = ConnectionParameter1;
@@ -54,16 +51,17 @@ public class JA_CreateNewFolder extends CustomJavaAction<Boolean>
 				SFTPused = true;
 			}
 			if(SFTPused) {
-				SFTPConnection.handleFile(null, ConfigurationParameter1, ConnectionParameter1, null, context, Action.MKDIR);
+				SFTPConnection.handleFile(null, ConfigurationParameter1, ConnectionParameter1, null, context, Action.RNM);
 			} else {
-				FTPConnection.execute(null, ConfigurationParameter1, ConnectionParameter1, null, context, Action.MKDIR);
+				FTPConnection.execute(null, ConfigurationParameter1, ConnectionParameter1, null, context, Action.RNM);
 			}
+				
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			Core.getLogger("(S)FTP").error(e);
 			return false;
-		}
+		}	
 		// END USER CODE
 	}
 
@@ -73,7 +71,7 @@ public class JA_CreateNewFolder extends CustomJavaAction<Boolean>
 	@Override
 	public String toString()
 	{
-		return "JA_CreateNewFolder";
+		return "JA_RenameDocument";
 	}
 
 	// BEGIN EXTRA CODE

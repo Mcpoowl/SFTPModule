@@ -60,7 +60,7 @@ public class JA_GetZIP extends CustomJavaAction<Boolean>
 				SFTPused = true;
 			}
 			if(SFTPused) {
-			SFTPConnection.handleFile(DocumentParameter1, ConfigurationParameter1, ConnectionParameter1, null, context, Action.ZIP);
+				SFTPConnection.handleFile(DocumentParameter1, ConfigurationParameter1, ConnectionParameter1, null, context, Action.ZIP);
 			} else {
 				FTPConnection.execute(DocumentParameter1, ConfigurationParameter1, ConnectionParameter1, null, context, Action.ZIP);
 			}

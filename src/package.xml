@@ -10,6 +10,7 @@
       <file path="javasource\sftp\actions\JA_CreateNewFolder.java" />
       <file path="javasource\sftp\actions\JA_SetParentDirectory.java" />
       <file path="javasource\sftp\actions\JA_GetZIP.java" />
+      <file path="javasource\sftp\actions\JA_RenameDocument.java" />
       <file path="javasource\sftp\helpers\Action.java" />
       <file path="javasource\sftp\helpers\FTPConnection.java" />
       <file path="javasource\sftp\helpers\SFTPConnection.java" />

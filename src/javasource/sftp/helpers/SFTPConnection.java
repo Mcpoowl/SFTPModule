@@ -208,7 +208,7 @@ public class SFTPConnection {
 				//Do we create a new folder?
 			} else if (sftpAction == Action.MKDIR) {
 				String currentDir = connection.getCurrentDirectory(context);
-				String newDir = currentDir+connection.getNewFolderName(context);
+				String newDir = currentDir+connection.getNewDocumentName(context);
 				SftpATTRS attrs = null;
 				try {
 					//Try if the directory already exists
@@ -230,6 +230,10 @@ public class SFTPConnection {
 			} else if (sftpAction == Action.CD) {
 				String parentFolder = getParentDirPath(connection.getCurrentDirectory(context)) +"/";
 				connection.setCurrentDirectory(context, parentFolder);
+			} else if (sftpAction == Action.RNM) {
+				String oldName = URL + connection.getOldDocumentName(context);
+				String newName =  URL + connection.getNewDocumentName(context);
+				sftpChannel.rename(oldName, newName);
 			} else {
 				pki.close();
 				throw new MendixRuntimeException("No correct SFTP action selected!");}
@@ -269,7 +273,7 @@ public class SFTPConnection {
 	}
 	
 	 static void resetNewFolderName(Connection connection, IContext context) {
-		connection.setNewFolderName(context, "");
+		connection.setNewDocumentName(context, "");
 		try { connection.commit(context); }
 		catch (CoreException e) {
 			throw new MendixRuntimeException("Connection commit failed!",e);	

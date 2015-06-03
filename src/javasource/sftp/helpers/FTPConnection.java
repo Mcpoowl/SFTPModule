@@ -127,7 +127,7 @@ public class FTPConnection {
 					client.deleteFile(URL + fileName); // remove file from destination
 			} else if(sftpAction == Action.MKDIR) {
 				String currentDir = connection.getCurrentDirectory(context);
-				String newDir = currentDir+connection.getNewFolderName(context);
+				String newDir = currentDir+connection.getNewDocumentName(context);
 				boolean directoryExists = client.changeWorkingDirectory(newDir+"/");
 				if (directoryExists) {
 					_logNode.warn(user + " tried to create " + newDir + "/ but it already exists. Directory not created");
@@ -178,6 +178,10 @@ public class FTPConnection {
 			    InputStream zipInputStream = new FileInputStream(tempFile);
 			    Core.storeFileDocumentContent(context, mendixDoc.getMendixObject(), zipInputStream);
 			    tempFile.delete();
+			} else if(sftpAction == Action.RNM) {
+				String oldName = URL + connection.getOldDocumentName(context);
+				String newName =  URL + connection.getNewDocumentName(context);
+				client.rename(oldName, newName);
 			} else {
 				closeConnection(client);
 				_logNode.error("Invalid action supplied");

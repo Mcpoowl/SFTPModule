@@ -54,7 +54,7 @@ public class JA_SetParentDirectory extends CustomJavaAction<Boolean>
 				SFTPused = true;
 			}
 			if(SFTPused) {
-			SFTPConnection.handleFile(null, ConfigurationParameter1, ConnectionParameter1, null, context, Action.CD);
+				SFTPConnection.handleFile(null, ConfigurationParameter1, ConnectionParameter1, null, context, Action.CD);
 			} else {
 				FTPConnection.execute(null, ConfigurationParameter1, ConnectionParameter1, null, context, Action.CD);
 			}
