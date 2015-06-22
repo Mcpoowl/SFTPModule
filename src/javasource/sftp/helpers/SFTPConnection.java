@@ -234,6 +234,9 @@ public class SFTPConnection {
 				String oldName = URL + connection.getOldDocumentName(context);
 				String newName =  URL + connection.getNewDocumentName(context);
 				sftpChannel.rename(oldName, newName);
+			} else if (sftpAction == Action.RM) { 
+				String fileToDelete = URL + connection.getOldDocumentName(context);
+				sftpChannel.rm(fileToDelete);
 			} else {
 				pki.close();
 				throw new MendixRuntimeException("No correct SFTP action selected!");}

@@ -182,6 +182,9 @@ public class FTPConnection {
 				String oldName = URL + connection.getOldDocumentName(context);
 				String newName =  URL + connection.getNewDocumentName(context);
 				client.rename(oldName, newName);
+			} else if(sftpAction == Action.RM) {
+				String fileToDelete = URL + connection.getOldDocumentName(context);
+				client.deleteFile(fileToDelete);
 			} else {
 				closeConnection(client);
 				_logNode.error("Invalid action supplied");

@@ -19,19 +19,19 @@ import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 /**
- * Tries to rename the selected file.
+ * Tries to remove the selected file from the directory.
  * 
  * Connection = The user specific Connection entity
  * Configuration = The general Configuration entity
  */
-public class JA_RenameDocument extends CustomJavaAction<Boolean>
+public class JA_RemoveDocument extends CustomJavaAction<Boolean>
 {
 	private IMendixObject __ConnectionParameter1;
 	private sftp.proxies.Connection ConnectionParameter1;
 	private IMendixObject __ConfigurationParameter1;
 	private sftp.proxies.Configuration ConfigurationParameter1;
 
-	public JA_RenameDocument(IContext context, IMendixObject ConnectionParameter1, IMendixObject ConfigurationParameter1)
+	public JA_RemoveDocument(IContext context, IMendixObject ConnectionParameter1, IMendixObject ConfigurationParameter1)
 	{
 		super(context);
 		this.__ConnectionParameter1 = ConnectionParameter1;
@@ -54,17 +54,16 @@ public class JA_RenameDocument extends CustomJavaAction<Boolean>
 				SFTPused = true;
 			}
 			if(SFTPused) {
-				SFTPConnection.handleFile(null, ConfigurationParameter1, ConnectionParameter1, null, context, Action.RNM);
+				SFTPConnection.handleFile(null, ConfigurationParameter1, ConnectionParameter1, null, context, Action.RM); 
 			} else {
-				FTPConnection.execute(null, ConfigurationParameter1, ConnectionParameter1, null, context, Action.RNM);
+				FTPConnection.execute(null, ConfigurationParameter1, ConnectionParameter1, null, context, Action.RM);
 			}
-				
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			Core.getLogger("(S)FTP").error(e);
 			return false;
-		}	
+		} 
 		// END USER CODE
 	}
 
@@ -74,7 +73,7 @@ public class JA_RenameDocument extends CustomJavaAction<Boolean>
 	@Override
 	public String toString()
 	{
-		return "JA_RenameDocument";
+		return "JA_RemoveDocument";
 	}
 
 	// BEGIN EXTRA CODE
