@@ -15,6 +15,7 @@ Useful if you want to connect to an (S)FTP server from within your Mendix applic
 * Download all files in folder as ZIP
 * Create new folder
 * Rename files and folders
+* Remove files
 
 ###Limitations:
 * Currently FTPS is not supported, although this option is selectable. 
