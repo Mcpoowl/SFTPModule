@@ -68,6 +68,12 @@ public class FTPConnection {
 	    }
 	    
 	    String URL = connection.getCurrentDirectory(context);
+	    
+	    //Check if the last character of the URL is a /. If not, add it.
+	    String lastChar = URL.substring(URL.length() -1);
+	    if (!lastChar.equals('/')) {
+	    	URL += '/';
+	    }
 		
 		try {
 

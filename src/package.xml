@@ -4,19 +4,21 @@
     <module name="SFTP" />
     <projectFile path="project.mpr" />
     <files>
-      <file path="javasource\sftp\actions\JA_GetFileList.java" />
-      <file path="javasource\sftp\actions\JA_GetZIP.java" />
-      <file path="javasource\sftp\actions\JA_SendDocument.java" />
-      <file path="javasource\sftp\actions\JA_SetParentDirectory.java" />
-      <file path="javasource\sftp\actions\JA_CreateNewFolder.java" />
-      <file path="javasource\sftp\actions\JA_RenameDocument.java" />
       <file path="javasource\sftp\actions\JA_GetDocument.java" />
+      <file path="javasource\sftp\actions\JA_GetFileList.java" />
+      <file path="javasource\sftp\actions\JA_SendDocument.java" />
+      <file path="javasource\sftp\actions\JA_CreateNewFolder.java" />
+      <file path="javasource\sftp\actions\JA_SetParentDirectory.java" />
+      <file path="javasource\sftp\actions\JA_GetZIP.java" />
+      <file path="javasource\sftp\actions\JA_RenameDocument.java" />
+      <file path="javasource\sftp\actions\JA_RemoveDocument.java" />
       <file path="javasource\sftp\helpers\Action.java" />
       <file path="javasource\sftp\helpers\FTPConnection.java" />
       <file path="javasource\sftp\helpers\SFTPConnection.java" />
       <file path="userlib\commons-io-2.4.jar" />
       <file path="userlib\jsch-0.1.52.jar" />
       <file path="userlib\org.apache.commons-net-3.3.0.jar" />
+      <file path="userlib\org.apache.commons.fileupload-1.2.1.jar" />
       <file path="userlib\org.apache.commons.io-2.3.0.jar" />
     </files>
   </modelerProject>
