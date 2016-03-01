@@ -44,7 +44,7 @@ public class FTPConnection {
 	private static final ILogNode _logNode = Core.getLogger("(S)FTP");
 
 		
-	public static String execute(FileDocument mendixDoc, Configuration configuration, Connection connection, List<IMendixObject> SFTPFileDocumentList, IContext context, Action sftpAction ){
+	public static int execute(FileDocument mendixDoc, Configuration configuration, Connection connection, List<IMendixObject> SFTPFileDocumentList, IContext context, Action sftpAction ){
 
 		boolean useUserCredentials = configuration.getuseUserCredentials(context);
 		
@@ -68,12 +68,6 @@ public class FTPConnection {
 	    }
 	    
 	    String URL = connection.getCurrentDirectory(context);
-	    
-	    //Check if the last character of the URL is a /. If not, add it.
-	    String lastChar = URL.substring(URL.length() -1);
-	    if (!lastChar.equals('/')) {
-	    	URL += '/';
-	    }
 		
 		try {
 
@@ -200,7 +194,7 @@ public class FTPConnection {
 			_logNode.error("Exception occured while executing action",e);
 			closeConnection(client);
 		}
-		return "";
+		return client.getReplyCode();
 		
 	}
 	
