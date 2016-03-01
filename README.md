@@ -1,4 +1,4 @@
-#(S)FTP Module for Mendix 5.8.1 and up
+#(S)FTP Module for Mendix 6.1.0 and up
 
 ## Description
 The (S)FTP module used the Jsch and Apache Commons libraries to allow you to browse (S)FTP servers from within your application. The module allows for downloading and uploading files, downloading an entire folder at once as a ZIP file, and creating new folders.
@@ -18,10 +18,10 @@ Useful if you want to connect to an (S)FTP server from within your Mendix applic
 * Remove files
 
 ###Limitations:
-* Currently FTPS is not supported, although this option is selectable. 
+* Currently FTPS is not supported, although this option is selectable.
 
 ## Dependencies
-* Mendix 5.8.1 and up
+* Mendix 6.1.0 and up
 
 ## Installation
 * Import the module and look at the _README microflow in the _USEME folder.
